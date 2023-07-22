@@ -1,0 +1,17 @@
+{
+  "name": "nodejsredisapp",
+  "version": "1.0.0",
+  "description": "nodejs app using redis for cache",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "kamal kafi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1",
+    "redis": "^4.6.7"
+  }
+}
