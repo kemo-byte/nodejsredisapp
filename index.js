@@ -1,5 +1,4 @@
 const express = require('express')
-//  const fetch = import('node-fetch')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const redis = require('redis')
 
@@ -34,7 +33,10 @@ async function getRepos(req, res) {
     const data = await response.json()
     // res.send(data)
     const repos = data.public_repos
-    await client.set(username, repos )
+    await client.set(username, repos ,{
+      EX: 3600, // expires in an hour
+      NX: true
+    })
     return res.send(setResponse(username, repos))
   } catch (error) {
     console.error(error);
